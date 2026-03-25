@@ -1,0 +1,39 @@
+                   ************************************
+                   = = = = LIFEMAXXING (outline model) = =
+                   ************************************
+
+Top Level:
+SKILL CATEGORIES == Main focuses for lifemaxxing (current outline: Mental Health, Personal Care,
+Household and Chores — see SkillCategories/Properties/Main)
+    *Per-category layout (properties pattern)*
+    "main page" - overview, skill tasks, goals, resources
+    "wishlist" - database of [items] for the [shop] (fields: GUI outline in wishlist file)
+    "timescale" for skill tasks with specific dates
+    "skill tasks"
+    Household and Chores extras: [Shopping List] database + knowledge bases (ingredient list, meals & recipes)
+    Mental Health extras: [Journal] database (categories + daily entry template); [WINS LIST] subpage
+
+SKILLS == [skill tasks] within a [skill category]
+SKILL TASK == a task that must be completed by a [deadline]
+-------
+Tracking systems:
+EXP == credit for completing a [skill task]
+
+EXP PROGRESS METER == Ratio of [EXP earned] to [EXP required] to complete a [mastery level]
+
+MASTERY LEVELS == [EXP] needed to gain a [mastery level] within a [skill category]
+
+STARDUST == Currency, per [skill category], to unlock items in [shop]
+
+------
+Rewards:
+ITEMS ==  Products that will be useful to progress in a skill category
+
+UPGRADES == Anything that can be purchased, but is not a specific product,
+that will be useful to progress in a skill category
+
+-----
+Visualizer & deadline tracker:
+MAP == Used for accountability & to visually see task list.
+_______________________________________________________________________________
+

@@ -1,0 +1,46 @@
+"M E T A: L I F E M A X X I N G" [stylized text]
+
+{ "Daily" widget
+
+ "Weekday, Month Day"
+**progress meter for date of current day/365**
+
+-->link: "Daily Plan"
+-->link: "Monthly Budget"
+
+[                      ]    [                             ]
+[ daily weather widget ]    [  task list with deadlines]
+[                      ]    [                             ]
+
+                                                                               };
+
+
+
+{ "SKILL CATEGORY" widget
+
+{ h1:-->link to skill category: "Mental Health"
+
+  {widget: "Today's Mood:" <- link to [skill categories/mental health/mood log]
+          select from animation: [1] [2] [3] [4] [5]
+          ^record to database "Mood Log" in [skill categories/mental health/mood log]^
+          }
+
+   {
+   link: [skill categories/mental health/journal] — database with filters (Name, Created Date, category)
+          Categories: thoughts & introspection | planning | rants and raves | big sad | daily entry
+          Template "DAILY ENTRY": brain dump | affirmation | task dump | notes
+   link: [skill categories/mental health/wins] — wins list (self-esteem, confidence, social anxiety, etc.)
+          }
+
+{ "MAIN QUESTLINES" widget: dashboard of quick info with links to each questline page (see MainQuestlines/*)
+
+Active questlines (3): Academia hub in [BrainMaxxing/main], [FinMaxxing/main], [FitMaxxing/main]
+
+|| [ACADEMIA] || [FINMAXXING] || [FITMAXXING] ||
+
+{ "WEEKLY QUESTS" widget (optional): link to recurring bundles — [WeeklyQuests/everythingShower], [WeeklyQuests/biweeklyBudget]; properties per [WeeklyQuests/format]
+
+                                                                             };
+
+
+
