@@ -1,0 +1,16 @@
+"Item" -> name
+"Status" -> "!P1" "!P2" "!P3" "Pending" "Purchased"
+
+
+
+database with views:
+"meta" -> "ALL" view
+"groceries" -> status | item 
+"wishlist" -> status | item | stardust requirement
+"archive"
+
+------
+
+knowledge base (lists which are able to be appended)
+"ingredient list"
+"meals & recipes" -> contains "ingredients" as items | check Y/N per ingredient

@@ -1,0 +1,29 @@
+                            * * * * * * *
+                        * * * * * * * * * * *
+                          * * * SHOP * * *
+                            * * * * * * *
+                              * * * * *
+                                * * *
+                                  *
+
+
+Every [skill category] has a [wishlist].
+Use [stardust] to unlock [items] & [upgrades] within a skill category. When
+the [stardust meter] is filled for an item, the ability to view & purchase
+a product is unlocked -> link to item in amazon "wishlist" list
+
+
+**gui outline**
+[SKILL CATEGORY]                      [SKILL CATEGORY]
+> PRODUCT LIST                        > PRODUCT LIST
+    >product block                        > product block
+        "image"                             "product info"
+        "info"
+        "price"
+        "priorityLevel"
+        "levelReq"
+        "stardustReq"
+        "StardustAssigned"
+        "stardustMeter"
+> P2 ..
+> P3 ..

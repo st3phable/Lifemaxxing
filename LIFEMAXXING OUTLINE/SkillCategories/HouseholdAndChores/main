@@ -1,0 +1,47 @@
+******************
+*HOUSEHOLD/CHORES*
+******************
+format: = skill task - EXP assigned
+
+[LAUNDRY]
+= wash - 5
+= dry - 2
+= fold - 7
+= organize - 4
+
+[KITCHEN]
+= dishes 5
+= clean out fridge - 7
+= throw away trash - 2
+= sweep - 4
+= mop - 5
+= wipe surfaces - 2
+= put away dishes - 2
+= throw out trash - 8
+
+[LIVING ROOM]
+= clean off couch - 3
+= put things away - 3
+= vacuum carpet - 5
+= throw away trash - 3
+
+[BEDROOM]
+= make bed - 3
+= clear laundry - 6
+= vacuum floor - 4
+= throw away trash - 3
+= clean surfaces -
+= take out dishes - 3
+= organize space - 5
+
+[BATHROOM]
+= clear off sink - 2
+= wipe sink - 5
+= wipe toilet - 6
+= scrub bathtub - 7
+= rinse bathtub - 2
+= organize toiletries - 3
+= throw away trash - 2
+= replace trash bag - 5
+= sweep - 3
+= mop - 5

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+const year = new Date().getFullYear();
+const myDate = new Date('2028-01-01T05:00:00.000Z');
+const startDate = moment(myDate);
+const padLeft = (num) => {
+if (String(num).length > 2) {
+return num;
+}
+return String("00" + num).slice(-2);
+}
+
+let intervalId;
+
+function triggerConfetti() {
+confetti({
+particleCount: 100,
+spread: 70,
+origin: { y: 0.6 }
+});
+}
+
+function updateTimer() {
+const today = moment();
+let diff = moment.duration(startDate.diff(today));
+
+if (diff <= 0) {
+clearInterval(intervalId);
+// Optionally, you can update the display to show that the countdown has ended
+document.getElementById("timer").innerHTML = "Countdown ended!";
+triggerConfetti();
+return;
+}
+
+const mthEnable = false;
+const wksEnable = false;
+const daysEnable = true;
+const hrsEnable = true;
+const minEnable = true;
+
+const dayRaw = Math.floor(diff.asDays());
+const hrsRaw = Math.floor(diff.subtract(daysEnable ? dayRaw : 0,"d").asHours());
+const minRaw = Math.floor(diff.subtract(hrsEnable ? hrsRaw : 0,"h").asMinutes());
+const secRaw = Math.floor(diff.subtract(minEnable ? minRaw : 0,"m").asSeconds());
+const days = padLeft(dayRaw);
+const hours = padLeft(hrsRaw);
+const minutes = padLeft(minRaw);
+const seconds = padLeft(secRaw);
+
+
+
+
+if (true) {
+document.getElementById("days").innerHTML = days;
+}
+
+if (true) {
+document.getElementById("hours").innerHTML = hours;
+}
+
+if (true) {
+document.getElementById("minutes").innerHTML = minutes;
+}
+
+if (true) {
+document.getElementById("seconds").innerHTML = seconds;
+}
+}
+
+intervalId = setInterval(updateTimer, 1000);
+
+</body>
+</html>

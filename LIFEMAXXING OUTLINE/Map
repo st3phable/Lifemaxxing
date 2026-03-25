@@ -1,0 +1,14 @@
+                            *********
+                            ***MAP***
+                            *********
+
+
+Calendar view
+Pull data from [skill category] [skill tasks] with deadlines,
+[quests] with deadlines, and [subtasks] with deadlines (sync with Gcal?!)
+
+*PROPERTIES*
+"skill task" with a [deadline]
+"quest" with a [deadline] -> link to quest page
+"subtask" with a [deadline] -> link to quest page
+
