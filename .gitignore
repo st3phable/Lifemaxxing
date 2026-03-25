@@ -1,0 +1,49 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Xcode — user/workspace state (keep shared schemes if you use them)
+xcuserdata/
+*.xcuserstate
+*.xccheckout
+*.xcscmblueprint
+*.moved-aside
+DerivedData/
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# Xcode build products (when building outside DerivedData)
+build/
+
+# Swift Package Manager
+.swiftpm/
+Packages/
+
+# CocoaPods / Carthage (uncomment if you add them)
+# Pods/
+# Carthage/Build/
+
+# fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output
+
+# Node (LIFEMAXXING OUTLINE/main.js)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Secrets & local env
+.env
+.env.*
+!.env.example
+
+# IDEs
+.idea/
+*.swp
+*~
