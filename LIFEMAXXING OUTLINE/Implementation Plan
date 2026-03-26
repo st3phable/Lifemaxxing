@@ -1,0 +1,142 @@
+================================================================================
+                    LIFEMAXXING — FINAL IMPLEMENTATION PLAN
+================================================================================
+Status: locked to current outline (see cross-references below). Update this file
+when outline taxonomy or v1 scope intentionally changes.
+
+--------------------------------------------------------------------------------
+1. PRODUCT
+--------------------------------------------------------------------------------
+macOS SwiftUI app that tracks life progress: skill-category habits/tasks (EXP,
+mastery, stardust), three main questlines (long-term goals), weekly quest
+bundles, shop/wishlists, and a map-style deadline view. Design intent lives in:
+  - dashboardOutline          → primary dashboard layout & Mental Health entry
+  - Main Properties            → EXP, mastery, stardust, skill tasks, Map, Shop
+  - MainQuestlines/format      → questline page structure & entities
+  - Shop, Map                  → economy & calendar behaviors
+  - WeeklyQuests/format        → repeating weekly bundle schema
+
+--------------------------------------------------------------------------------
+2. CANONICAL TAXONOMY (no ValueMaxxing; three questlines only)
+--------------------------------------------------------------------------------
+Skill categories (v1 domains):
+  • Mental Health      — SkillCategories/MentalHealth/*, Journal, mood, wins
+  • Personal Care      — SkillCategories/PersonalCare/*
+  • Household & Chores — SkillCategories/HouseholdAndChores/*, Shopping List
+
+Per-category pattern (Main Properties):
+  main hub, wishlist (feeds Shop), timescale/deadlines, skill tasks.
+
+Main questlines (exactly three):
+  • Academia (BrainMaxxing folder / hub) — MainQuestlines/BrainMaxxing/main
+  • FinMaxxing  — MainQuestlines/FinMaxxing/main
+  • FitMaxxing  — MainQuestlines/FitMaxxing/main
+
+Weekly quests: definitions under WeeklyQuests/ (e.g. everythingShower,
+biweeklyBudget); shared properties in WeeklyQuests/format.
+
+--------------------------------------------------------------------------------
+3. DATA ENTITIES (implementation targets)
+--------------------------------------------------------------------------------
+Skill layer:
+  SkillCategory, SkillTask (deadline-capable), optional EXP/stardust awards,
+  MasteryLevel / EXP thresholds per category.
+
+Mental Health:
+  MoodLogEntry; JournalEntry (Name, Created Date, category enum: thoughts &
+  introspection, planning, rants and raves, big sad, daily entry); DailyEntry
+  fields: brain dump, affirmation, task dump, notes; WinEntry (wins list).
+
+Household:
+  Shopping list rows (Item, Status: !P1/!P2/!P3/Pending/Purchased); views:
+  meta, groceries, wishlist, archive; append-only knowledge: ingredient list,
+  meals & recipes (recipe ↔ ingredients checkmarks).
+
+Questlines:
+  Questline, Objective, Quest (deadline), Subquest (deadline), ToDo database
+  links as in format file.
+
+Economy:
+  WishlistItem / Shop product fields per Shop + Properties/wishlist; stardust
+  pools per skill category; unlock rules when stardust meter fills.
+
+Map:
+  Aggregated items with deadlines: skill tasks, quests, subtasks (optional
+  external calendar sync is post–v1 unless you pull it forward).
+
+--------------------------------------------------------------------------------
+4. SCREENS (MVP → full)
+--------------------------------------------------------------------------------
+MVP shell:
+  [ ] App shell: sidebar or tab navigation; placeholder views per section.
+
+Dashboard (from dashboardOutline):
+  [ ] Daily: date, day-of-year meter, links to Daily Plan & Monthly Budget,
+      weather placeholder, task list with deadlines.
+  [ ] Mental Health block: mood 1–5 → MoodLog; shortcuts to Journal & Wins.
+  [ ] Main questlines row: Academia | FinMaxxing | FitMaxxing → detail.
+
+Secondary:
+  [ ] Three skill category hubs (+ Mental Health journal/wins flows).
+  [ ] Household: chores from tasks; Shopping List CRUD + views.
+  [ ] Shop: category columns, product blocks, stardust meters.
+  [ ] Map: calendar/list of deadline-bearing items.
+  [ ] Questline detail: objectives, roadmap, resources, DBs per format.
+
+--------------------------------------------------------------------------------
+5. TECHNICAL BASELINE
+--------------------------------------------------------------------------------
+  • Target: macOS, SwiftUI, Xcode project Lifemaxxing.xcodeproj (current code
+    is template ContentView only).
+  • Persistence: choose one for v1 — SwiftData recommended (models map cleanly
+    to entities above); migrate if you later need CloudKit sync.
+  • Secrets: .env / API keys stay out of repo (see repo .gitignore); Notion
+    experiment (main.js) is optional integration, not required for app v1.
+
+--------------------------------------------------------------------------------
+6. PHASED DELIVERY
+--------------------------------------------------------------------------------
+Phase A — Foundation
+  • Navigation structure; design tokens / spacing (optional: align with
+    UI:UX design.rtf).
+  • SwiftData (or chosen store) + seed or import for skill categories &
+    questline shells.
+
+Phase B — Dashboard + one vertical
+  • Dashboard widgets wired to real (or stub) data.
+  • Complete one skill category end-to-end (recommend Mental Health: mood +
+    journal categories + wins) to prove EXP/stardust if modeled.
+
+Phase C — Remaining skill + economy
+  • Personal Care tasks; Household + Shopping List.
+  • Wishlist + Shop UI; stardust earn/spend loop.
+
+Phase D — Questlines + Map + weekly
+  • Questline pages; todos/quests/subquests with deadlines.
+  • Map aggregation; weekly quest templates and completion.
+
+Phase E — Polish
+  • Fit nutrition/training detail (meals/ingredients DBs), Fin workflows,
+    weather widget, budget links — as you prioritize from outline.
+
+--------------------------------------------------------------------------------
+7. DEFINITION OF DONE (v1)
+--------------------------------------------------------------------------------
+  • User can log mood, journal (with categories + daily entry), wins.
+  • User can see and complete skill tasks for all three categories with
+    deadlines and basic progress (EXP and/or stardust as implemented).
+  • User can open all three questline hubs and record quests with deadlines.
+  • Shop reads wishlist-style data; weekly quests can be checked off in-app.
+  • Map shows at least a unified list or calendar of upcoming deadlines.
+
+--------------------------------------------------------------------------------
+8. OUTLINE FILES OF RECORD
+--------------------------------------------------------------------------------
+  Main Properties, dashboardOutline, MainQuestlines/format,
+  SkillCategories/Properties/Main, Shop, Map, WeeklyQuests/format,
+  SkillCategories/MentalHealth/*, PersonalCare/*, HouseholdAndChores/*,
+  MainQuestlines/*/main
+
+================================================================================
+END
+================================================================================

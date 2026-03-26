@@ -1,5 +1,0 @@
-"weeklyQuestName"
-"isRepeating" = bool
-"range" = mondays 8:00am to sunday 11:59p
-"tasks" = list
-"stardustEarned" = int
