@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var selection: AppDestination? = .dashboard
+    @State private var selection: AppDestination = .dashboard
     @State private var categories: [SkillCategory] = [
         SkillCategory(name: "Mental Health"),
         SkillCategory(name: "Personal Care"),
@@ -17,35 +17,30 @@ struct ContentView: View {
 
     var body: some View {
         NavigationSplitView {
-            List(selection: $selection) {
+            List {
                 Section("Home") {
-                    Label("Dashboard", systemImage: "sparkles")
-                        .tag(AppDestination.dashboard as AppDestination?)
+                    sidebarRow(title: "Dashboard", systemImage: "sparkles", destination: .dashboard)
                 }
 
                 Section("Skills") {
-                    Label("Skill Categories", systemImage: "square.grid.2x2")
-                        .tag(AppDestination.skillCategories as AppDestination?)
+                    sidebarRow(title: "Skill Categories", systemImage: "square.grid.2x2", destination: .skillCategories)
                 }
 
                 Section("Quests") {
-                    Label("Main Questlines", systemImage: "flag.checkered")
-                        .tag(AppDestination.questlines as AppDestination?)
-                    Label("Weekly Quests", systemImage: "calendar")
-                        .tag(AppDestination.weeklyQuests as AppDestination?)
+                    sidebarRow(title: "Main Questlines", systemImage: "flag.checkered", destination: .questlines)
+                    sidebarRow(title: "Weekly Quests", systemImage: "calendar", destination: .weeklyQuests)
                 }
 
                 Section("Tools") {
-                    Label("Shop", systemImage: "bag")
-                        .tag(AppDestination.shop as AppDestination?)
-                    Label("Map", systemImage: "map")
-                        .tag(AppDestination.map as AppDestination?)
+                    sidebarRow(title: "Shop", systemImage: "bag", destination: .shop)
+                    sidebarRow(title: "Map", systemImage: "map", destination: .map)
                 }
             }
-            .frame(minWidth: 220)
+            .listStyle(.sidebar)
+            .navigationSplitViewColumnWidth(min: 220, ideal: 240)
         } detail: {
             Group {
-                switch selection ?? .dashboard {
+                switch selection {
                 case .dashboard:
                     DashboardView()
                 case .skillCategories:
@@ -62,6 +57,25 @@ struct ContentView: View {
             }
             .frame(minWidth: 640, minHeight: 420)
         }
+    }
+
+    @ViewBuilder
+    private func sidebarRow(title: String, systemImage: String, destination: AppDestination) -> some View {
+        let isSelected = selection == destination
+        Button {
+            selection = destination
+        } label: {
+            Label(title, systemImage: systemImage)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .contentShape(Rectangle())
+        }
+        .buttonStyle(.plain)
+        .foregroundStyle(isSelected ? Color.accentColor : .primary)
+        .listRowBackground(
+            RoundedRectangle(cornerRadius: 6, style: .continuous)
+                .fill(isSelected ? Color.accentColor.opacity(0.14) : Color.clear)
+                .padding(.vertical, 2)
+        )
     }
 }
 
